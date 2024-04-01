@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div *ngIf="loading">
+      <!-- Display loading indicator here (e.g., spinner or message) -->
+      <p>Loading...</p>
+    </div>
+    <div *ngIf="!loading">
+      <div *ngIf="users && users.length > 0">
+        <!-- Display users -->
+        <div class="row">
+          <div class="col-md-3" *ngFor="let user of users">
+            <div class="card mb-3">
+              <div class="card-body rounded bg-light">
+                <div class="row">
+                  <div class="col-md-7">
+                    <h5 class="card-title text-primary">User ID: {{ user.id }}</h5>
+                    <p class="card-text"><strong>Username:</strong> {{ user.username }}</p>
+                    <p class="card-text"><strong>Password:</strong> {{ user.password }}</p>
+                  </div>
+                  <div class="col-md-5 mt-4 pt-2">
+                    <p class="card-text"><strong>Role:</strong> {{ user.role }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="users && users.length === 0">
+        <!-- Display message when no users found -->
+        <p>No users found.</p>
+      </div>
+    </div>
+  </div>
+</div>

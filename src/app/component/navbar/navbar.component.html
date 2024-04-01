@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary px-2">
+  <a class="navbar-brand" href="#">Auth App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <!-- Display username and logout button if logged in -->
+      <li class="nav-item mt-2 mx-1" *ngIf="loggedInUserName">
+        <span class="nav-text text-white">{{ loggedInUserName }}</span>
+      </li>
+      <li class="nav-item" *ngIf="loggedInUserName">
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
+      </li>
+      <!-- Hide login and register links if logged in -->
+      <li class="nav-item" *ngIf="!loggedInUserName">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active" aria-current="page">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="!loggedInUserName">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active" aria-current="page">Register</a>
+      </li>
+      <!-- Show link to Users page if logged in -->
+      <li class="nav-item" *ngIf="loggedInUserName">
+        <a class="nav-link" routerLink="/users" routerLinkActive="active" aria-current="page">Users</a>
+      </li>
+      
+
+    </ul>
+  </div>
+</nav>
